@@ -1,46 +1,19 @@
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-}
-
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
-
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("input").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("No Task");
-  } else {
-    document.getElementById("ul").appendChild(li);
-  }
-  document.getElementById("input").value = "";
-
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
+<div class="container-fluid">
+<form class="w-75 bg-gradient bg-success">
+    <div class="row my-2">
+        <div class="col">
+            <button id="sorting" class="btn btn-primary align-self-end">Sort By</button>
+        </div>
+        <div class="col">
+            <input class="form-control" type="text" placeholder="Enter your item" id="list-content">
+        </div>
+        <div class="col">
+            <button id="addItem" class="btn btn-primary">Add Item</button>
+        </div>
+    </div>
+    <div class="row bg-gradient my-2">
+        <ul id="item-wrapper" class="my-2 ms-auto me-auto ps-5 list-group">
+        </ul>
+    </div>
+</form>
+</div>
