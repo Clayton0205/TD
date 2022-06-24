@@ -25,7 +25,7 @@ function addTodo(item) {
 
     todos.push(todo);
     addToLocalStorage(todos); 
-
+ 
     todoInput.value = '';
   }
 }
@@ -107,17 +107,4 @@ todoItemsList.addEventListener('click', function(event) {
   if (event.target.classList.contains('delete-button')) {
     deleteTodo(event.target.parentElement.getAttribute('data-key'));
   }
-});
-
-document.querySelector('#sort').addEventListener('click', ()=> {
-  todos.sort( (a, b)=> {
-    
-      if (a.item < b.item) {
-          return -1
-      }
-      if (a.item > b.item) {
-          return 1
-      }
-      return 0
-  }); 
 });
